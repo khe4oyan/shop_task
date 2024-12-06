@@ -15,3 +15,8 @@
 
 /* general styles */
 /* .app {} */
+
+.container {
+  max-width: 1366px;
+  margin: auto;
+}
