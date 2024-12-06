@@ -14,8 +14,8 @@ export default function ShowProducts() {
 
   return (
     <div className={classes.root}>
-      {allProducts.map((productData, i) => (
-        <ProductCard productData={productData} key={i} />
+      {allProducts.map(productData => (
+        <ProductCard productData={productData} key={productData.id} />
       ))}
     </div>
   );

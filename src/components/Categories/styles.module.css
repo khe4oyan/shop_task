@@ -17,6 +17,7 @@
   height: 30px;
   background-color: var(--color_white);
   border-radius: 5px;
+  border: 1px solid var(--color_gray_dark);
 }
 .categoryCardsBox {
   display: flex;
@@ -24,4 +25,10 @@
 }
 .subCategoryBox {
   display: flex;
+}
+
+.activeButton {
+  box-shadow: 0 0 10px #00000040;
+  color: var(--color_blue);
+  border: none;
 }

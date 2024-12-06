@@ -1,74 +1,106 @@
 // libs
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { selectGender, selectCategoryInd, selectSubCategoryInd } from "../../store/slices/categoriesSlice";
 
 // components
 import CategoryCard from "../CategoryCard";
 import SubCategoryCard from "../SubCategoryCard";
-import AddCategory from '../AddCategory';
-import AddSubCategory from '../AddSubCategory'
+import AddCategory from "../AddCategory";
+import AddSubCategory from "../AddSubCategory";
 
 // styles
 import classes from "./styles.module.css";
 
 export default function Categories() {
-  const { categories } = useSelector((state) => state.categoriesSlice);
-  
+  const {
+    selectedCategoryInd,
+    selectedSubCategoryInd,
+    selectedGender,
+    categories,
+  } = useSelector((state) => state.categoriesSlice);
+
+  const dispatch = useDispatch();
+
   const genderButtonHandler = (event) => {
-    // const gender =  event.target.value
-    // TODO
+    const gender = event.target.value
+    dispatch(selectGender(gender));
   };
 
-  const gender = "female";
-  const selecedCategoryInd = 0; // TODO: заглушка. Зделать его рабочим из Slice
-  const selectCategory = () => {} // TODO заглушка
-  const selectSubCategory = () => {} // TODO заглушка
+  const selectCategory = (indCategory) => {
+    dispatch(selectCategoryInd(indCategory));
+  }; 
+
+  const selectSubCategory = (indSubCategory) => {
+    console.log(indSubCategory);
+    dispatch(selectSubCategoryInd(indSubCategory));
+  };
+
+  const genderButtons = [
+    {
+      value: "female",
+      buttonTitle: "Женский",
+      svg: null,
+    },
+    {
+      value: "male",
+      buttonTitle: "Мужской",
+      svg: null,
+    },
+  ];
 
   return (
     <div className={classes.root}>
       <div className={classes.categories}>
         <div className={classes.genderBox}>
-          <button
-            className={classes.genderButton}
-            onClick={genderButtonHandler}
-            value="female"
-          >
-            female
-          </button>
-          <button
-            className={classes.genderButton}
-            onClick={genderButtonHandler}
-            value="male"
-          >
-            male
-          </button>
+          {genderButtons.map((buttonData, i) => (
+            <button
+              key={i}
+              className={`${classes.genderButton} ${selectedGender === buttonData.value && classes.activeButton}`}
+              onClick={genderButtonHandler}
+              value={buttonData.value}
+            >
+              {buttonData.svg} (svg)
+            </button>
+          ))}
         </div>
         <div className={classes.categoryCardsBox}>
-          {categories[gender].map((categoryData, i) => (
+          {categories[selectedGender].map((categoryData, i) => (
             <CategoryCard
               categoryData={categoryData}
               setCategoryInd={() => {
                 selectCategory(i);
               }}
+              isSelectedCategory = {i === selectedCategoryInd}
               key={i}
             />
           ))}
-          <AddCategory />
+          <AddCategory genderButtons={genderButtons} categoryLength={categories[selectedGender].length} />
         </div>
       </div>
 
       <div className={classes.subCategoryBox}>
-        {categories[gender][selecedCategoryInd].subcategories.map(
+        {categories[selectedGender][selectedCategoryInd]?.subCategories?.map(
           (subCategoryName, i) => (
             <SubCategoryCard
               subCategoryName={subCategoryName}
-              selectSubCategor={() => {
+              selectSubCategory={() => {
                 selectSubCategory(i);
               }}
+              isSelectedSubCategory={ i === selectedSubCategoryInd}
               key={i}
             />
           )
         )}
-        <AddSubCategory />
+        
+        {
+          categories[selectedGender].length > 0 &&
+          <AddSubCategory
+            categoryName={categories[selectedGender][selectedCategoryInd].name}
+            categoryLength={categories[selectedGender][0]?.subCategories?.length}
+            selectedCategoryInd={selectedCategoryInd}
+            selectedGender={selectedGender}
+          />
+        }
       </div>
     </div>
   );

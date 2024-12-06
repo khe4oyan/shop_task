@@ -7,10 +7,16 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  box-shadow: 0 0 10px #00000040;
 }
 
 .img {
   width: 50px;
   object-fit: contain;
   height: 50px;
+}
+.selectedCategory {
+  box-shadow: none;
+  border: 2px solid var(--color_gray_dark);
+  z-index: 20;
 }

@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
 }
-.article {}
+/* .article {} */
 .price {
   font-weight: bold;
 }

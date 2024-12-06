@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Categories from "../../components/Categories";
 
 const categoriesSlice = createSlice({
   name: "categoriesSlice",
@@ -9,18 +8,7 @@ const categoriesSlice = createSlice({
     selectedSubCategoryInd: 0,
     selectedGender: "female",
     categories: {
-      female: [
-        {
-          categoryName: "Кольцо",
-          bannerImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT99Zd_lLcd6hMADt4xndnUcseq1_UsVNegzw&s",
-          subcategories: ["Кольцо", "Обручальное", "Кольца Кастеты", "Коктейльные", "Помолвочные"],
-        },
-        {
-          categoryName: "Колье",
-          bannerImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT99Zd_lLcd6hMADt4xndnUcseq1_UsVNegzw&s",
-          subcategories: ["суб категория"],
-        },
-      ],
+      female: [],
       male: [],
     }
   },
@@ -62,8 +50,8 @@ const categoriesSlice = createSlice({
     addSubCategoryByCategoryInd(state, action) {
       const {gender, categoryInd, subCategoryName } = action.payload;
 
-      if (state[gender].categories[categoryInd]) {
-        state[gender].categories[categoryInd].subcategories.push(subCategoryName);
+      if (state.categories[gender][categoryInd]) {
+        state.categories[gender][categoryInd].subCategories.push(subCategoryName);
       }
     },
 
@@ -72,15 +60,15 @@ const categoriesSlice = createSlice({
 
       if (state[gender].categories[categoryInd]) {
         const newSubCutegories = [];
-        const currentSubCategories = state[gender].categories[categoryInd].subcategories;
+        const currentsubCategories = state[gender].categories[categoryInd].subCategories;
 
-        for (let i = 0; i < currentSubCategories.length; ++i) {
+        for (let i = 0; i < currentsubCategories.length; ++i) {
           if (i !== removeAbleSubCategoryInd) {
-            newSubCutegories.push(currentSubCategories[i]);
+            newSubCutegories.push(currentsubCategories[i]);
           }
         }
         
-        state[gender].categories[categoryInd].subcategories = newSubCutegories;
+        state[gender].categories[categoryInd].subCategories = newSubCutegories;
       }
     }
   }

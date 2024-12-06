@@ -7,6 +7,7 @@
   padding: 0 30px;
   position: relative;
   background: none;
+  text-align: center;
 }
 
 .line {
@@ -19,7 +20,9 @@
 }
 
 .lineActive {
-  scale: 1.5;
+  width: 110%;
   background-color: var(--color_blue);
   border-radius: 5px;
+  z-index: 2;
+  height: 6px;
 }

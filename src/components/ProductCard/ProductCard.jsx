@@ -2,7 +2,7 @@
 import classes from './styles.module.css';
 
 export default function ProductCard({ productData }) {
-  console.log(Object.getOwnPropertyNames(productData).join(" | "));
+  // console.log(Object.getOwnPropertyNames(productData).join(" | "));
   
   return (
     <div className={classes.root}>

@@ -1,35 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+let productIdCounter = 2;
 const productsSlice = createSlice({
   name: "productsSlice",
   
   initialState: {
-    allProducts: [
-      {
-        article: "A555",
-        price: 2500,
-        img: "https://cdn.prod.website-files.com/6177926b5641c2ccacfc1ad3/649568a7a8a62d807124e772_Jewelry%20as%20an%20Investment.webp",
-        forGender: "female",
-        categoryInd: 0,
-        subCategoryInd: 0,
-      },
-      {
-        article: "F888",
-        price: 5555,
-        img: "https://cdn.prod.website-files.com/6177926b5641c2ccacfc1ad3/649568a7a8a62d807124e772_Jewelry%20as%20an%20Investment.webp",
-        forGender: "male",
-        categoryInd: 0,
-        subCategoryInd: 0,
-      }
-    ],
+    allProducts: [],
   },
 
   reducers: {
     setAllProducts(state, action) {
       state.showedProducts.push(action.payload);
     },
+    
+    addProduct(state, action) {
+      console.log("#1", productIdCounter++);
+      state.allProducts.push(action.payload);
+    },
+
+    remProductById(state, action) {
+      const removeableProductId = action.payload;
+      const newProducts = [];
+
+      for (let i = 0; i < state.allProducts.length; ++i) {
+        if (state.allProducts[i].id !== removeableProductId) {
+          newProducts.push(state.allProducts[i]);
+        }
+      }
+
+      state.allProducts = newProducts;
+    }
   },
 });
 
-export const { setAllProducts } = productsSlice.actions;
+export const { setAllProducts, addProduct, remProductById } = productsSlice.actions;
 export default productsSlice.reducer;
