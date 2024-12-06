@@ -38,6 +38,7 @@ export default function AddCategory() {
             <input type="text" placeholder="Категория" className={classes.input}/>
 
             {/* TODO: добавить фото */}
+            (Add Photo)
 
             <button className={classes.submitButton} onClick={submitButtonHandler}>Добавить</button>
           </div>
