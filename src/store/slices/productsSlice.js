@@ -12,6 +12,14 @@ const productsSlice = createSlice({
         forGender: "female",
         categoryInd: 0,
         subCategoryInd: 0,
+      },
+      {
+        article: "F888",
+        price: 5555,
+        img: "https://cdn.prod.website-files.com/6177926b5641c2ccacfc1ad3/649568a7a8a62d807124e772_Jewelry%20as%20an%20Investment.webp",
+        forGender: "male",
+        categoryInd: 0,
+        subCategoryInd: 0,
       }
     ],
   },
