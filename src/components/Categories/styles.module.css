@@ -1,1 +1,27 @@
-.root {}
+.root {
+  margin-bottom: 14px;
+}
+.categories {
+  display: flex;
+  gap: 20px;
+  height: 80px;
+  margin-bottom: 26px;
+}
+.genderBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.genderButton {
+  width: 50px;
+  height: 30px;
+  background-color: var(--color_white);
+  border-radius: 5px;
+}
+.categoryCardsBox {
+  display: flex;
+  gap: 20px;
+}
+.subCategoryBox {
+  display: flex;
+}

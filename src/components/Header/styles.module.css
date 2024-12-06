@@ -1,1 +1,32 @@
-.root {}
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  background-color: var(--color_white);
+  position: relative;
+}
+
+.searchBox {
+  padding: 4px;
+  width: 378px;
+  height: 40px;
+  background-color: var(--color_gray);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.searchInput {
+  height: 100%;
+  background: none;
+  padding: 0 21px;
+  width: 100%;
+}
+.searchButton {
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--color_blue);
+  color: var(--color_white);
+  cursor: pointer;
+}
