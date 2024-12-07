@@ -154,7 +154,7 @@ export default function AddNewProduct() {
                   <div className={classes.inputBox}>
                     <p className={classes.inputBoxTitle}>Цена</p>
                     <input
-                      type="text"
+                      type="number"
                       className={classes.input}
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
