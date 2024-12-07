@@ -18,7 +18,8 @@ export default function AddNewProduct() {
   const {
     selectedCategoryInd,
     selectedSubCategoryInd,
-    selectedGender
+    selectedGender,
+    categories,
   } = useSelector(state => state.categoriesSlice);
   const dispatch = useDispatch();
 
@@ -112,7 +113,11 @@ export default function AddNewProduct() {
 
   return (
     <>
-      <button className={classes.root} onClick={toggleModal}>
+      <button 
+        className={classes.root} 
+        onClick={toggleModal} 
+        disabled={!(categories[selectedGender][selectedCategoryInd]?.subCategories[selectedSubCategoryInd])}
+      >
         Добавить Изделия
       </button>
 

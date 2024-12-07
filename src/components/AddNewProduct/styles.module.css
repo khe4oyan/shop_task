@@ -7,6 +7,12 @@
   color: var(--color_blue);
   font-weight: bold;
 }
+.root:disabled {
+  background: var(--color_gray);
+  color: var(--color_gray_dark);
+  border-color: var(--color_gray_dark);
+  cursor: no-drop;
+}
 
 .modalContainer {
   position: fixed;
