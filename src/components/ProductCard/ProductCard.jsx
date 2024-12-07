@@ -2,8 +2,6 @@
 import classes from './styles.module.css';
 
 export default function ProductCard({ productData }) {
-  // console.log(Object.getOwnPropertyNames(productData).join(" | "));
-  
   return (
     <div className={classes.root}>
       <img src={productData.img} alt="productImg" className={classes.img}/>

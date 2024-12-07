@@ -31,7 +31,6 @@
   z-index: 10;
   background-color: var(--color_white);
   width: 301px;
-  height: 360px;
 }
 
 .boxLeft {
@@ -93,6 +92,13 @@
   margin-bottom: 18px;
 }
 
+.addPhoto {
+  width: 100%;
+  height: 145px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 .submitButton {
   width: 100%;
   height: 32px;
@@ -100,6 +106,7 @@
   background-color: var(--color_blue);
   color: var(--color_white);
   font-weight: bold;
+  margin-top: 25px;
 }
 
 .bg {

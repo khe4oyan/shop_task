@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 // components
 import SvgIcon from "../SvgIcon";
+import AddPhoto from "../AddPhoto/AddPhoto";
 
 // slices
 import {addCategory} from "../../store/slices/categoriesSlice";
@@ -22,11 +23,12 @@ export default function AddCategory({categoryLength, genderButtons}) {
   const toggleIsOpen = () => {
     setIsOpen((prev) => !prev);
     setCategoryName("");
+    setCategoryImg(null);
   };
 
   const submitButtonHandler = () => {
     const categoryNameTrimmed = categoryName.trim();
-    if (categoryNameTrimmed === "") {return;}
+    if (categoryNameTrimmed === "" || categoryImg === null) {return;}
 
     dispatch(addCategory({
       gender: selectedGender,
@@ -35,6 +37,17 @@ export default function AddCategory({categoryLength, genderButtons}) {
     }));
     
     toggleIsOpen();
+  }
+
+  const setImg = (e) => {
+    const file = e[0];
+    
+    if (file) {
+      const imgSrc = URL.createObjectURL(file);
+      setCategoryImg(imgSrc);
+    } else {
+      setCategoryImg(null);
+    }
   }
 
   return (
@@ -59,9 +72,12 @@ export default function AddCategory({categoryLength, genderButtons}) {
             </div>
 
             <input type="text" placeholder="Категория" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} className={classes.input}/>
-
-            {/* TODO: добавить фото */}
-            (Add Photo)
+            
+            {
+              categoryImg ? 
+              <img src={categoryImg} alt="" className={classes.addPhoto}/> :
+              <AddPhoto className={classes.addPhoto} idName="categoryImg" setFiles={setImg}/>
+            }
 
             <button className={classes.submitButton} onClick={submitButtonHandler}>Добавить</button>
           </div>

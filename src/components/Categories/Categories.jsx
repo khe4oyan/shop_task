@@ -32,7 +32,6 @@ export default function Categories() {
   }; 
 
   const selectSubCategory = (indSubCategory) => {
-    console.log(indSubCategory);
     dispatch(selectSubCategoryInd(indSubCategory));
   };
 
