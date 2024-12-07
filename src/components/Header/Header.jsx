@@ -1,19 +1,22 @@
 // components
-import SvgIcon from '../SvgIcon'
+import SvgIcon from "../SvgIcon";
+import AddNewProduct from "../AddNewProduct";
 
 // styles
-import classes from './styles.module.css';
+import classes from "./styles.module.css";
 
 export default function Header() {
-  // TODO add search logic
   return (
     <div className={classes.root}>
-      <div className={classes.searchBox}>
-        <input className={classes.searchInput} placeholder='Поиск'/>
-        <button className={classes.searchButton}>
-          <SvgIcon iconName={"search"} width={18} height={18.97}/>
-        </button>
+      <div className={`container ${classes.container}`}>
+        <div className={classes.searchBox}>
+          <input className={classes.searchInput} placeholder="Поиск" />
+          <button className={classes.searchButton}>
+            <SvgIcon iconName={"search"} width={18} height={18.97} />
+          </button>
+        </div>
+        <AddNewProduct />
       </div>
     </div>
-  )
+  );
 }

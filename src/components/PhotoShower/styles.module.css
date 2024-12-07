@@ -1,0 +1,14 @@
+.deleteButton {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  --size: 12px;
+  width: var(--size);
+  height: var(--size);
+  color: gray;
+  rotate: 45deg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+} 

@@ -96,7 +96,7 @@ export default function Categories() {
           categories[selectedGender].length > 0 &&
           <AddSubCategory
             categoryName={categories[selectedGender][selectedCategoryInd].name}
-            categoryLength={categories[selectedGender][0]?.subCategories?.length}
+            categoryLength={categories[selectedGender][selectedCategoryInd]?.subCategories?.length}
             selectedCategoryInd={selectedCategoryInd}
             selectedGender={selectedGender}
           />

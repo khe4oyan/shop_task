@@ -39,17 +39,6 @@ export default function AddCategory({categoryLength, genderButtons}) {
     toggleIsOpen();
   }
 
-  const setImg = (e) => {
-    const file = e[0];
-    
-    if (file) {
-      const imgSrc = URL.createObjectURL(file);
-      setCategoryImg(imgSrc);
-    } else {
-      setCategoryImg(null);
-    }
-  }
-
   return (
     <>
       <div className={`${classes.root} ${isOpen && classes.rootActive}`}>
@@ -76,7 +65,7 @@ export default function AddCategory({categoryLength, genderButtons}) {
             {
               categoryImg ? 
               <img src={categoryImg} alt="" className={classes.addPhoto}/> :
-              <AddPhoto className={classes.addPhoto} idName="categoryImg" setFiles={setImg}/>
+              <AddPhoto className={classes.addPhoto} idName="categoryImg" setFiles={setCategoryImg}/>
             }
 
             <button className={classes.submitButton} onClick={submitButtonHandler}>Добавить</button>

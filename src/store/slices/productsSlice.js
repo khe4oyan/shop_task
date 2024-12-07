@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let productIdCounter = 2;
 const productsSlice = createSlice({
   name: "productsSlice",
   
@@ -14,7 +13,6 @@ const productsSlice = createSlice({
     },
     
     addProduct(state, action) {
-      console.log("#1", productIdCounter++);
       state.allProducts.push(action.payload);
     },
 

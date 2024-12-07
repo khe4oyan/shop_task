@@ -11,6 +11,17 @@ export default function AddPhoto({
   isShowTitle = true,
   className = "",
 }) {
+  const onChangeFiles = (e) => {
+    const file = e.target.files[0];
+    
+    if (file) {
+      const imgSrc = URL.createObjectURL(file);
+      setFiles(imgSrc);
+    } else {
+      setFiles(null);
+    }
+  }
+
   return (
     <label htmlFor={idName} className={`${classes.root} ${className}`}>
       <input
@@ -18,7 +29,7 @@ export default function AddPhoto({
         accept="image/*"
         multiple={isMultiple}
         id={idName}
-        onChange={(e) => setFiles(e.target.files)}
+        onChange={onChangeFiles}
         style={{ display: "none" }}
       />
       <SvgIcon iconName="addPhoto" />
