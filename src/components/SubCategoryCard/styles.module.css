@@ -1,5 +1,6 @@
 .root {
   width: max-content;
+  min-width: 100px;
   height: 50px;
   display: flex;
   align-items: center;

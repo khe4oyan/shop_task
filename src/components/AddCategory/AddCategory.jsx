@@ -2,6 +2,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+// components
+import SvgIcon from "../SvgIcon";
+
 // slices
 import {addCategory} from "../../store/slices/categoriesSlice";
 
@@ -48,7 +51,10 @@ export default function AddCategory({categoryLength, genderButtons}) {
             
             <div className={classes.genderBox}>
               {genderButtons.map((genderButton, i) =>
-                <button onClick={() => setSelectedGender(genderButton.value)} className={`${classes.genderButton} ${selectedGender === genderButton.value && classes.selectedGenderButton}`} key={i}>(svg) {genderButton.buttonTitle}</button>
+                <button onClick={() => setSelectedGender(genderButton.value)} className={`${classes.genderButton} ${selectedGender === genderButton.value && classes.selectedGenderButton}`} key={i}>
+                  <SvgIcon iconName={genderButton.svg} width={24} height={24}/>
+                  {genderButton.buttonTitle}
+                </button>
               )}
             </div>
 

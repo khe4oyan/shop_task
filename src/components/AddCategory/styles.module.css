@@ -19,6 +19,7 @@
   background-color: var(--color_white);
   color: rgba(0, 0, 0, 0.502);
   border-radius: 4px;
+  box-shadow: 0 0 10px #00000040;
 }
 
 .addCategoryBox {
@@ -70,10 +71,19 @@
   border-radius: 4px;
   background: none;
   border: 1px solid var(--color_gray_dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
+
 .selectedGenderButton {
   box-shadow: 0 0 10px #00000040;
   border: none;
+
+  path {
+    fill: var(--color_blue);
+  }
 }
 
 .input {

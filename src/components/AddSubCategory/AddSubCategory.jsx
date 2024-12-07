@@ -39,7 +39,7 @@ export default function AddSubCategory({categoryLength, categoryName, selectedCa
         <button onClick={toggleIsOpen} className={classes.addButton}>+</button>
 
         {isOpen && (
-          <div className={`${classes.addCategoryBox} ${(categoryLength === undefined || categoryLength < 2) && classes.boxLeft}`}>
+          <div className={`${classes.addCategoryBox} ${(categoryLength === undefined || categoryLength < 3) && classes.boxLeft}`}>
             <div className={classes.header}>
               <p className={classes.headerText}>{categoryName}: Добавить Подкатегорию</p>
               <button onClick={toggleIsOpen} className={classes.closeButton}>+</button>

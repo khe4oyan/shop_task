@@ -5,9 +5,9 @@ export default function SvgIcon({
   className = "",
   width = 24,
   height = 24,
-  filled = true,
+  filled = false,
 }) {
-  const svg = svgIcons[iconName]?.svg ?? svgIcons[iconName];
+  const svg = svgIcons[iconName]?.svg;
 
   if (!svg) {
     throw new Error("wrong icon");

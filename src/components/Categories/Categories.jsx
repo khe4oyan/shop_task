@@ -7,6 +7,7 @@ import CategoryCard from "../CategoryCard";
 import SubCategoryCard from "../SubCategoryCard";
 import AddCategory from "../AddCategory";
 import AddSubCategory from "../AddSubCategory";
+import SvgIcon from '../SvgIcon';
 
 // styles
 import classes from "./styles.module.css";
@@ -39,12 +40,12 @@ export default function Categories() {
     {
       value: "female",
       buttonTitle: "Женский",
-      svg: null,
+      svg: "female",
     },
     {
       value: "male",
       buttonTitle: "Мужской",
-      svg: null,
+      svg: "male",
     },
   ];
 
@@ -59,7 +60,7 @@ export default function Categories() {
               onClick={genderButtonHandler}
               value={buttonData.value}
             >
-              {buttonData.svg} (svg)
+              <SvgIcon iconName={buttonData.svg} width={19} height={18} className={classes.svgIcon}/>
             </button>
           ))}
         </div>

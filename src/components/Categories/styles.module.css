@@ -31,4 +31,12 @@
   box-shadow: 0 0 10px #00000040;
   color: var(--color_blue);
   border: none;
+
+  path {
+    fill: var(--color_blue);
+  }
+}
+
+.svgIcon {
+  pointer-events: none;
 }
