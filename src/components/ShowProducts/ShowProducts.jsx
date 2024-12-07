@@ -18,8 +18,6 @@ export default function ShowProducts() {
   const showableProducts = [];
 
   for (let i = 0; i < allProducts.length; ++i) {
-    console.log(allProducts[i]);
-    
     if (
       allProducts[i].gender === selectedGender &&
       allProducts[i].categoryInd === selectedCategoryInd &&
